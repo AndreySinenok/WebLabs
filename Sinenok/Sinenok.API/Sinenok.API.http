@@ -1,0 +1,6 @@
+@Sinenok.API_HostAddress = http://localhost:5058
+
+GET {{Sinenok.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

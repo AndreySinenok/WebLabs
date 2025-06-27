@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sinenok.UI", "Sinenok.UI\Si
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinenok.Domain", "Sinenok.Domain\Sinenok.Domain.csproj", "{2053BC21-9A92-47F1-B396-043074A830A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinenok.API", "Sinenok.API\Sinenok.API.csproj", "{FE8576C2-F8F5-48D5-A3E9-4ED106ED583B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2053BC21-9A92-47F1-B396-043074A830A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2053BC21-9A92-47F1-B396-043074A830A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2053BC21-9A92-47F1-B396-043074A830A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE8576C2-F8F5-48D5-A3E9-4ED106ED583B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE8576C2-F8F5-48D5-A3E9-4ED106ED583B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE8576C2-F8F5-48D5-A3E9-4ED106ED583B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE8576C2-F8F5-48D5-A3E9-4ED106ED583B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

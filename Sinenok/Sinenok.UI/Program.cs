@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 using Sinenok.UI.Data;
 using Sinenok.UI.Services;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +12,13 @@ var connectionString = builder.Configuration.GetConnectionString("SqLiteConnecti
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddHttpClient<IProductService, ApiProductService>(opt =>
+    opt.BaseAddress = new Uri("https://localhost:7002/api/gadgets/"));
+
+builder.Services.AddHttpClient<ICategoryService, ApiCategoryService>(opt =>
+    opt.BaseAddress = new Uri("https://localhost:7002/api/categories/"));
+
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
