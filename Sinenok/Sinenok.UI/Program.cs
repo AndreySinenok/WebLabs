@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using Sinenok.UI.Data;
+using Sinenok.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
