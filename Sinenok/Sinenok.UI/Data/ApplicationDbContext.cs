@@ -9,5 +9,6 @@ namespace Sinenok.UI.Data
             : base(options)
         {
         }
+        public DbSet<Sinenok.Domain.Entities.Gadget> Gadget { get; set; } = default!;
     }
 }

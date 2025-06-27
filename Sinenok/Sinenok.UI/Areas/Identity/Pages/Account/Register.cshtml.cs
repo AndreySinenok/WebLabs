@@ -2,25 +2,19 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;S
 using Sinenok.UI.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.StaticFiles;
 
-namespace Ganets.UI.Areas.Identity.Pages.Account
+namespace Sinenok.UI.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
     {
@@ -52,6 +46,9 @@ namespace Ganets.UI.Areas.Identity.Pages.Account
         /// </summary>
         [BindProperty]
         public InputModel Input { get; set; }
+
+        [BindProperty]
+        public IFormFile? Avatar { get; set; }
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -98,6 +95,7 @@ namespace Ganets.UI.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
         }
 
 
@@ -117,6 +115,18 @@ namespace Ganets.UI.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+
+                if (Avatar != null)
+                {
+                    user.Avatar = new byte[Avatar.Length];
+                    await Avatar
+                    .OpenReadStream()
+                    .ReadAsync(user.Avatar);
+                    var extProvider = new FileExtensionContentTypeProvider();
+                    var ext = Path.GetExtension(Avatar.FileName);
+                    user.MimeType = extProvider.Mappings[ext];
+                }
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)

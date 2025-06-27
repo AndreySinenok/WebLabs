@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinenok.UI", "Sinenok.UI\Sinenok.UI.csproj", "{D8ABF3AA-DC7B-43BA-9667-83CCD8651E60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sinenok.UI", "Sinenok.UI\Sinenok.UI.csproj", "{D8ABF3AA-DC7B-43BA-9667-83CCD8651E60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinenok.Domain", "Sinenok.Domain\Sinenok.Domain.csproj", "{2053BC21-9A92-47F1-B396-043074A830A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D8ABF3AA-DC7B-43BA-9667-83CCD8651E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8ABF3AA-DC7B-43BA-9667-83CCD8651E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8ABF3AA-DC7B-43BA-9667-83CCD8651E60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2053BC21-9A92-47F1-B396-043074A830A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2053BC21-9A92-47F1-B396-043074A830A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2053BC21-9A92-47F1-B396-043074A830A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2053BC21-9A92-47F1-B396-043074A830A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

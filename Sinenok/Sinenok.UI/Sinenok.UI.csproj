@@ -21,4 +21,8 @@
     <Folder Include="Components\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sinenok.Domain\Sinenok.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
