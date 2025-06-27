@@ -7,19 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Sinenok.Domain.Entities;
 using Sinenok.UI.Data;
+using Sinenok.UI.Services;
 
 namespace Sinenok.UI.Areas.Admin.Pages
 {
-    public class DetailsModel : PageModel
+    public class DetailsModel(IProductService productService) : PageModel
     {
-        private readonly DataDbContext _context;
-
-        public DetailsModel(DataDbContext context)
-        {
-            _context = context;
-        }
-
-        public Gadget Gadget { get; set; } = default!;
+        public Gadget gadget { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,15 +22,13 @@ namespace Sinenok.UI.Areas.Admin.Pages
                 return NotFound();
             }
 
-            var gadget = await _context.Gadgets.FirstOrDefaultAsync(m => m.Id == id);
-            if (gadget == null)
+            var result = await productService.GetProductByIdAsync(id.Value);
+            if (!result.Success || result.Data == null)
             {
                 return NotFound();
             }
-            else
-            {
-                Gadget = gadget;
-            }
+
+            gadget = result.Data;
             return Page();
         }
     }
