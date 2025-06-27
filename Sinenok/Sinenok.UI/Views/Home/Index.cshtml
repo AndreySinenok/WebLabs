@@ -1,79 +1,28 @@
 ﻿@{
-    Layout = null;
-}
+    ViewData["Title"] = "Index page";
 
-<!DOCTYPE html>
+    var lst = ViewData["Lst"] as SelectList;
+} 
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
-    <link rel="stylesheet" href="~/Ganets.UI.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <div class="container">
-            <!-- Панель навигации -->
-            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-                <!-- меню сайта -->
-                <a class="navbar-brand" href="#">Ganets</a>
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">Лб 1</a>
-                    <a class="nav-item nav-link" href="#">Каталог</a>
-                    <a class="nav-item nav-link" href="#">Администрирование</a>
-                </div>
-                <!-- меню сайта - конец -->
-                <!-- Информация пользователя -->
-                <a href="#" class="navbar-text ms-auto">
-                    00,0 руб <i class="fa-solid fa-cart-shopping"></i> (0)
-                </a>
-                <div class="dropdown ms-4 nav-color">
-                    <button class="btn btn-secondary dropdown-toggle"
-                            type="button" id="dropdownMenuButton"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                        User@gmail.com
-                        <img src="Images/ava.jpg" width="30"
-                             alt="User" class="rounded nav-color" />
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li>
-                            <span class="dropdown-item-text">
-                                <img src="Images/ava.jpg"
-                                     width="50" alt="User" class="rounded" />
-                                user@gmail.com
-                            </span>
-                        </li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li>
-                            <form id="logoutForm" class="form-inline" action="#">
-                                <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Информация пользователя - конец -->
-            </nav> <!-- Панель навигации - конец -->
-
-        </div><!-- container - конец -->
-    </header><!-- header - конец -->
-    <main class="container">
-        <h1>Лабораторная работа 1</h1>
-        <h2>Список</h2>
-        <ol type="A">
-            <li>элемент 0 списка</li>
-            <li>элемент 1 списка</li>
-            <li>элемент 2 списка</li>
-            <li>элемент 3 списка</li>
-            <li>элемент 4 списка</li>
+<h1>@ViewData["Message"]</h1>
+<h2>Список</h2>
+<ol type="A">
+    @for (int i=0;i<5;i++)
+    {
+        <li>Элемент @i списка</li>
+    }
         </ol>
-        <hr></hr>
-        <h2>Форма</h2>
+    <hr></hr>
+    <h2>Форма</h2>
         <form method="post" action="#">
+            <div class="form-group row mb-3">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <div>
+                        <select asp-items="@lst" name="list"  class="form-select"></select>
+                    </div>
+                </div>
+            </div>
             <div class="form-group row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-10">
@@ -133,25 +82,3 @@
             </div>
             <button type="submit" class="btn btn-primary mb-3">Отправить</button>
         </form>
-    </main>
-    <footer>
-        <div class="container">
-            <div class="navbar navbar-dark navbar-expand-md bg-dark">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-item nav-link" href="http://www.facebook.com">
-                        <i class="fa-brands fa-facebook-f fa-2x"></i>
-                    </a>
-                    <a class="nav-item nav-link" href="http://www.vk.com">
-                        <i class="fa-brands fa-vk fa-2x"></i>
-                    </a>
-                    <a class="nav-item nav-link" href="http://www.twitter.com">
-                        <i class="fa-brands fa-twitter fa-2x"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
