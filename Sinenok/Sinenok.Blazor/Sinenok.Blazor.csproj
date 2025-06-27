@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sinenok.API\Sinenok.API.csproj" />
+    <ProjectReference Include="..\Sinenok.Domain\Sinenok.Domain.csproj" />
+    <ProjectReference Include="..\Sinenok.UI\Sinenok.UI.csproj" />
+  </ItemGroup>
+
+</Project>

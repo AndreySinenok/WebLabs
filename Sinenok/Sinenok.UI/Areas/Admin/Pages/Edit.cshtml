@@ -1,0 +1,66 @@
+﻿@page
+@model Sinenok.UI.Areas.Admin.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Редактирование товара";
+}
+
+<div class="container mt-4 mb-5">
+    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+            <h4 class="card-title mb-4">Редактирование товара</h4>
+
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="gadget.Id" />
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="gadget.Name" class="form-label">Название</label>
+                    <input asp-for="gadget.Name" class="form-control" />
+                    <span asp-validation-for="gadget.Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="gadget.Description" class="form-label">Описание</label>
+                    <input asp-for="gadget.Description" class="form-control" />
+                    <span asp-validation-for="gadget.Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="gadget.Price" class="form-label">Цена (BYR)</label>
+                    <input asp-for="gadget.Price" type="number" class="form-control" />
+                    <span asp-validation-for="gadget.Price" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="gadget.CategoryId" class="form-label">Категория</label>
+                    <select asp-for="gadget.CategoryId" class="form-select" asp-items="ViewBag.CategoryId"></select>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Image" class="form-label">Изображение</label>
+                    <input asp-for="Image" type="file" class="form-control" />
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.gadget.Image))
+                {
+                        <div class="mb-4">
+                            <label class="form-label">Текущее изображение:</label><br />
+                            <img src="@Model.gadget.Image" alt="Preview" class="img-thumbnail" style="max-height: 200px;" />
+                        </div>
+                }
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <a asp-page="Index" class="btn btn-secondary">Отменить</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
