@@ -1,4 +1,5 @@
-﻿using Sinenok.Domain.Entities.Models;
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+using Sinenok.Domain.Entities.Models;
 using Sinenok.Domain.Entities;
 using Sinenok.UI.Services;
 
@@ -92,6 +93,9 @@ namespace Sinenok.UI.Services
             return Task.FromResult(result);
         }
 
-
+        public Task<ResponseData<Gadget>> CreateProductAsync(Gadget productt, IFormFile? formFile)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
