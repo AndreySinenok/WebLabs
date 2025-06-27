@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Identity\Pages\Account\" />
     <Folder Include="Views\Shared\Components\Cart\" />
     <Folder Include="Components\" />
   </ItemGroup>
